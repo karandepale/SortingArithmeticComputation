@@ -11,3 +11,6 @@ echo "Part-time result: $part_time_result"
 
 result=$(bc -l <<< "$c + $a / $b")
 echo "Result: $result
+
+result=$((a % b + c))
+echo "Result: $result"
