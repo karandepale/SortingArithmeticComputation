@@ -1,20 +1,18 @@
+echo "Welcome to Sorting Algorithm Problems"
+declare -A results
 read -p "Enter the value of a: " a
 read -p "Enter the value of b: " b
 read -p "Enter the value of c: " c
 
-result=$((a + b * c))
-echo "Result: $result"
+results["a+b*c"]=$((a + b * c))
+results["a*b+c"]=$((a * b + c))
 
-part_time_result=$((part_time_hour * result))
-echo "Part-time result: $part_time_result"
+results["c+a/b"]=$(bc -l <<< "$c + $a / $b")
 
+results["a%b+c"]=$((a % b + c))
+values=("${results[@]}")
 
-result=$(bc -l <<< "$c + $a / $b")
-echo "Result: $result
-
-result=$((a % b + c))
-echo "Result: $result"
-
-for key in "${!results[@]}"; do
-  echo "$key = ${results[$key]}"
+echo "Values:"
+for value in "${values[@]}"; do
+  echo "$value"
 done
