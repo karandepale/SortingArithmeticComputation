@@ -14,3 +14,7 @@ echo "Result: $result
 
 result=$((a % b + c))
 echo "Result: $result"
+
+for key in "${!results[@]}"; do
+  echo "$key = ${results[$key]}"
+done
